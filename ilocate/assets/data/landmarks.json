@@ -1,0 +1,786 @@
+[
+ {
+  "id": "dayneto-seafood-grill-restaurant",
+  "name": "Dayneto Seafood Grill & Restaurant",
+  "type": "Food",
+  "lat": 10.75913433293768,
+  "lng": 122.59345959847636,
+  "image": "assets/images/places/dayneto-seafood-grill-restaurant.jpg"
+ },
+ {
+  "id": "bugoy-s-seafood-resto",
+  "name": "Bugoy's Seafood Resto",
+  "type": "Food",
+  "lat": 10.757940927551093,
+  "lng": 122.59338814214664,
+  "image": "assets/images/places/bugoy-s-seafood-resto.jpg"
+ },
+ {
+  "id": "tytche-grill-and-seafood-restaurant",
+  "name": "Tytche Grill and Seafood Restaurant",
+  "type": "Food",
+  "lat": 10.764777235930518,
+  "lng": 122.59507758983803,
+  "image": "assets/images/places/tytche-grill-and-seafood-restaurant.jpg"
+ },
+ {
+  "id": "paluto-seafood-grill-restaurant",
+  "name": "Paluto Seafood Grill & Restaurant",
+  "type": "Food",
+  "lat": 10.757973358181326,
+  "lng": 122.59245361680223,
+  "image": "assets/images/places/paluto-seafood-grill-restaurant.jpg"
+ },
+ {
+  "id": "igma-seafood-restaurant",
+  "name": "IGMA SEAFOOD RESTAURANT",
+  "type": "Food",
+  "lat": 10.75607953604305,
+  "lng": 122.59217904773323,
+  "image": "assets/images/places/igma-seafood-restaurant.jpg"
+ },
+ {
+  "id": "payag-sa-baybay-seafood-and-grill",
+  "name": "Payag sa Baybay Seafood and Grill",
+  "type": "Food",
+  "lat": 10.759583613741787,
+  "lng": 122.59409555981111,
+  "image": "assets/images/places/payag-sa-baybay-seafood-and-grill.jpg"
+ },
+ {
+  "id": "bulljack-talabahan",
+  "name": "Bulljack Talabahan",
+  "type": "Food",
+  "lat": 10.753044089625048,
+  "lng": 122.59037708494218,
+  "image": "assets/images/places/bulljack-talabahan.jpg"
+ },
+ {
+  "id": "chicken-sari-sari-restaurant",
+  "name": "Chicken Sari-Sari Restaurant",
+  "type": "Food",
+  "lat": 10.721818809477522,
+  "lng": 122.56109618388516,
+  "image": "assets/images/places/chicken-sari-sari-restaurant.jpg"
+ },
+ {
+  "id": "kalanph",
+  "name": "KALANPH",
+  "type": "Food",
+  "lat": 10.722465771312292,
+  "lng": 122.56589050408616,
+  "image": "assets/images/places/kalanph.jpg"
+ },
+ {
+  "id": "pat-pat-s-kansi-house",
+  "name": "Pat-Pat's Kansi House",
+  "type": "Food",
+  "lat": 10.723337086662148,
+  "lng": 122.55733416770454,
+  "image": "assets/images/places/pat-pat-s-kansi-house.jpg"
+ },
+ {
+  "id": "alicia-batchoy-lapaz-branch",
+  "name": "ALICIA BATCHOY LAPAZ BRANCH",
+  "type": "Food",
+  "lat": 10.712996520779798,
+  "lng": 122.57021377535246,
+  "image": "assets/images/places/alicia-batchoy-lapaz-branch.jpg"
+ },
+ {
+  "id": "netong-s-original-special-la-paz-batchoy",
+  "name": "Netong's Original Special La Paz Batchoy",
+  "type": "Food",
+  "lat": 10.708976980581577,
+  "lng": 122.56788379006483,
+  "image": "assets/images/places/netong-s-original-special-la-paz-batchoy.jpg"
+ },
+ {
+  "id": "madge-cafe-la-paz",
+  "name": "Madge Cafe - La Paz",
+  "type": "Cafe",
+  "lat": 10.709116791570953,
+  "lng": 122.56795493464733,
+  "image": "assets/images/places/madge-cafe-la-paz.jpg"
+ },
+ {
+  "id": "roberto-s",
+  "name": "Roberto's",
+  "type": "Food",
+  "lat": 10.69432238142466,
+  "lng": 122.5712668119209,
+  "image": "assets/images/places/roberto-s.jpg"
+ },
+ {
+  "id": "coffee-crib-cafe",
+  "name": "Coffee Crib Cafe",
+  "type": "Cafe",
+  "lat": 10.720511088390547,
+  "lng": 122.56239392275427,
+  "image": "assets/images/places/coffee-crib-cafe.jpg"
+ },
+ {
+  "id": "coffee-brewtherhood",
+  "name": "Coffee Brewtherhood",
+  "type": "Cafe",
+  "lat": 10.72124157586635,
+  "lng": 122.55930662122633,
+  "image": "assets/images/places/coffee-brewtherhood.jpg"
+ },
+ {
+  "id": "bean-there-coffee",
+  "name": "bean there. coffee",
+  "type": "Cafe",
+  "lat": 10.71823799017888,
+  "lng": 122.56164170212094,
+  "image": "assets/images/places/bean-there-coffee.jpg"
+ },
+ {
+  "id": "the-yield-specialty-coffee",
+  "name": "The Yield Specialty Coffee",
+  "type": "Cafe",
+  "lat": 10.727099929771118,
+  "lng": 122.5566095839762,
+  "image": "assets/images/places/the-yield-specialty-coffee.jpg"
+ },
+ {
+  "id": "monkey-grounds-coffee",
+  "name": "Monkey Grounds Coffee",
+  "type": "Cafe",
+  "lat": 10.70934597057672,
+  "lng": 122.55187049136245,
+  "image": "assets/images/places/monkey-grounds-coffee.jpg"
+ },
+ {
+  "id": "neighbor-coffee",
+  "name": "Neighbor Coffee",
+  "type": "Cafe",
+  "lat": 10.707757842409734,
+  "lng": 122.54925312999886,
+  "image": "assets/images/places/neighbor-coffee.jpg"
+ },
+ {
+  "id": "bean-there-coffee-city-proper",
+  "name": "bean there. coffee - city proper",
+  "type": "Cafe",
+  "lat": 10.698631681482047,
+  "lng": 122.56194864533974,
+  "image": "assets/images/places/bean-there-coffee-city-proper.jpg"
+ },
+ {
+  "id": "madge-cafe-lapaz",
+  "name": "Madge Cafe - Lapaz",
+  "type": "Cafe",
+  "lat": 10.70951744441596,
+  "lng": 122.56818504357632,
+  "image": "assets/images/places/madge-cafe-lapaz.jpg"
+ },
+ {
+  "id": "drip-coffee-community",
+  "name": "Drip Coffee & Community",
+  "type": "Cafe",
+  "lat": 10.708861743853888,
+  "lng": 122.55227466863532,
+  "image": "assets/images/places/drip-coffee-community.jpg"
+ },
+ {
+  "id": "dud-s-cafe",
+  "name": "Dud's Cafe",
+  "type": "Cafe",
+  "lat": 10.728834352091425,
+  "lng": 122.55484113795352,
+  "image": "assets/images/places/dud-s-cafe.jpg"
+ },
+ {
+  "id": "palanaguan-cafe",
+  "name": "Palanaguan Cafe",
+  "type": "Cafe",
+  "lat": 10.725260428581427,
+  "lng": 122.54320842999886,
+  "image": "assets/images/places/palanaguan-cafe.jpg"
+ },
+ {
+  "id": "coffee-degree",
+  "name": "Coffee Degree",
+  "type": "Cafe",
+  "lat": 10.71692310843851,
+  "lng": 122.56611503330569,
+  "image": "assets/images/places/coffee-degree.jpg"
+ },
+ {
+  "id": "palpitate-coffee-iloilo",
+  "name": "Palpitate Coffee Iloilo",
+  "type": "Cafe",
+  "lat": 10.694933493563868,
+  "lng": 122.56597909931709,
+  "image": "assets/images/places/palpitate-coffee-iloilo.jpg"
+ },
+ {
+  "id": "the-good-locals-co",
+  "name": "The Good Locals Co.",
+  "type": "Cafe",
+  "lat": 10.700626367341295,
+  "lng": 122.56506791465796,
+  "image": "assets/images/places/the-good-locals-co.jpg"
+ },
+ {
+  "id": "amore-coffee",
+  "name": "Amore Coffee",
+  "type": "Cafe",
+  "lat": 10.730991555874061,
+  "lng": 122.53965957602153,
+  "image": "assets/images/places/amore-coffee.jpg"
+ },
+ {
+  "id": "chapter-coffee-roastery-cafe-iloilo-la-paz",
+  "name": "Chapter Coffee Roastery & Cafe - Iloilo La Paz",
+  "type": "Cafe",
+  "lat": 10.703371015503937,
+  "lng": 122.56018861465796,
+  "image": "assets/images/places/chapter-coffee-roastery-cafe-iloilo-la-paz.jpg"
+ },
+ {
+  "id": "saigon-brewers",
+  "name": "Saigon Brewers",
+  "type": "Cafe",
+  "lat": 10.72813422345321,
+  "lng": 122.55744632261262,
+  "image": "assets/images/places/saigon-brewers.jpg"
+ },
+ {
+  "id": "aquarium-cafe",
+  "name": "Aquarium Cafe",
+  "type": "Cafe",
+  "lat": 10.723035137313119,
+  "lng": 122.55426424533975,
+  "image": "assets/images/places/aquarium-cafe.jpg"
+ },
+ {
+  "id": "aroma",
+  "name": "aroma.",
+  "type": "Cafe",
+  "lat": 10.71161060368349,
+  "lng": 122.55405127602151,
+  "image": "assets/images/places/aroma.jpg"
+ },
+ {
+  "id": "the-grind-coffee-co",
+  "name": "The Grind Coffee Co.",
+  "type": "Cafe",
+  "lat": 10.700027369048932,
+  "lng": 122.55986838397621,
+  "image": "assets/images/places/the-grind-coffee-co.jpg"
+ },
+ {
+  "id": "flour-bakery-brunch-cafe",
+  "name": "Flour Bakery + Brunch Cafe",
+  "type": "Cafe",
+  "lat": 10.69975952418958,
+  "lng": 122.5618389385556,
+  "image": "assets/images/places/flour-bakery-brunch-cafe.jpg"
+ },
+ {
+  "id": "madge-cafe-atria",
+  "name": "Madge Cafe - Atria",
+  "type": "Cafe",
+  "lat": 10.707186575535314,
+  "lng": 122.54891614533973,
+  "image": "assets/images/places/madge-cafe-atria.jpg"
+ },
+ {
+  "id": "9-04-resto-caf-and-events",
+  "name": "9:04 Resto Café and Events",
+  "type": "Cafe",
+  "lat": 10.728625722116929,
+  "lng": 122.55607866863531,
+  "image": "assets/images/places/9-04-resto-caf-and-events.jpg"
+ },
+ {
+  "id": "snap-a-shot-cafe",
+  "name": "Snap.a.shot Cafe",
+  "type": "Cafe",
+  "lat": 10.72144151023983,
+  "lng": 122.5593649686353,
+  "image": "assets/images/places/snap-a-shot-cafe.jpg"
+ },
+ {
+  "id": "sa-poste-caf-del-carmen-jaro",
+  "name": "Sa Poste Café - Del Carmen Jaro",
+  "type": "Cafe",
+  "lat": 10.719453106484801,
+  "lng": 122.56345428217048,
+  "image": "assets/images/places/sa-poste-caf-del-carmen-jaro.jpg"
+ },
+ {
+  "id": "kucho-cafe",
+  "name": "Kucho Cafe",
+  "type": "Cafe",
+  "lat": 10.710020914201346,
+  "lng": 122.55101945730674,
+  "image": "assets/images/places/kucho-cafe.jpg"
+ },
+ {
+  "id": "8th-street-coffee",
+  "name": "8th Street Coffee",
+  "type": "Cafe",
+  "lat": 10.714266587734375,
+  "lng": 122.57023490603119,
+  "image": "assets/images/places/8th-street-coffee.jpg"
+ },
+ {
+  "id": "owl-s-caf",
+  "name": "Owl’s Café",
+  "type": "Cafe",
+  "lat": 10.73145421442561,
+  "lng": 122.55459863795355,
+  "image": "assets/images/places/owl-s-caf.jpg"
+ },
+ {
+  "id": "cicada-caf",
+  "name": "Cicada Café",
+  "type": "Cafe",
+  "lat": 10.698573073194513,
+  "lng": 122.56741372999885,
+  "image": "assets/images/places/cicada-caf.jpg"
+ },
+ {
+  "id": "cafe-maya",
+  "name": "Cafe Maya",
+  "type": "Cafe",
+  "lat": 10.727172388101925,
+  "lng": 122.55187146068066,
+  "image": "assets/images/places/cafe-maya.jpg"
+ },
+ {
+  "id": "the-coffee-studio",
+  "name": "The Coffee Studio",
+  "type": "Cafe",
+  "lat": 10.6977921234577,
+  "lng": 122.56177848397617,
+  "image": "assets/images/places/the-coffee-studio.jpg"
+ },
+ {
+  "id": "book-latt-caf-library-art-space",
+  "name": "Book Latté Café, Library & Art Space",
+  "type": "Cafe",
+  "lat": 10.718830748796714,
+  "lng": 122.5480581839762,
+  "image": "assets/images/places/book-latt-caf-library-art-space.jpg"
+ },
+ {
+  "id": "caf-ula",
+  "name": "café ula",
+  "type": "Cafe",
+  "lat": 10.740793852614296,
+  "lng": 122.56469471465796,
+  "image": "assets/images/places/caf-ula.jpg"
+ },
+ {
+  "id": "st-clement-s-church-redemptorists-iloilo",
+  "name": "St. Clement's Church - Redemptorists Iloilo",
+  "type": "Church",
+  "lat": 10.710559045016277,
+  "lng": 122.56528133033173,
+  "image": "assets/images/places/st-clement-s-church-redemptorists-iloilo.jpg"
+ },
+ {
+  "id": "jaro-metropolitan-cathedral",
+  "name": "Jaro Metropolitan Cathedral",
+  "type": "Church",
+  "lat": 10.7202,
+  "lng": 122.5611,
+  "image": "assets/images/places/jaro-metropolitan-cathedral.jpg"
+ },
+ {
+  "id": "st-joseph-the-worker-parish-church",
+  "name": "St. Joseph the Worker Parish Church",
+  "type": "Church",
+  "lat": 10.735283594676114,
+  "lng": 122.54678398801076,
+  "image": "assets/images/places/st-joseph-the-worker-parish-church.jpg"
+ },
+ {
+  "id": "doane-baptist-church",
+  "name": "Doane Baptist Church",
+  "type": "Church",
+  "lat": 10.702269251099665,
+  "lng": 122.56783455811234,
+  "image": "assets/images/places/doane-baptist-church.jpg"
+ },
+ {
+  "id": "m-h-del-pilar-nuestra-senora-parish-church",
+  "name": "M.H. Del Pilar Nuestra Senora Parish Church",
+  "type": "Church",
+  "lat": 10.721908469174252,
+  "lng": 122.56418828801075,
+  "image": "assets/images/places/m-h-del-pilar-nuestra-senora-parish-church.jpg"
+ },
+ {
+  "id": "nstra-sra-de-la-paz-y-buen-viaje",
+  "name": "Nstra. Sra. De La Paz Y Buen Viaje",
+  "type": "Church",
+  "lat": 10.712946083218212,
+  "lng": 122.57147359965853,
+  "image": "assets/images/places/nstra-sra-de-la-paz-y-buen-viaje.jpg"
+ },
+ {
+  "id": "miagao-church",
+  "name": "Miagao Church",
+  "type": "Church",
+  "lat": 10.64200874690313,
+  "lng": 122.23530092501237,
+  "image": "assets/images/places/miagao-church.jpg"
+ },
+ {
+  "id": "molo-church",
+  "name": "Molo Church",
+  "type": "Church",
+  "lat": 10.697540512031699,
+  "lng": 122.54444379349131,
+  "image": "assets/images/places/molo-church.jpg"
+ },
+ {
+  "id": "mandurriao-church",
+  "name": "Mandurriao Church",
+  "type": "Church",
+  "lat": 10.7,
+  "lng": 122.545,
+  "image": "assets/images/places/mandurriao-church.jpg"
+ },
+ {
+  "id": "plaza-libertad-church",
+  "name": "Plaza Libertad Church",
+  "type": "Church",
+  "lat": 10.692,
+  "lng": 122.573,
+  "image": "assets/images/places/plaza-libertad-church.jpg"
+ },
+ {
+  "id": "the-church-of-jesus-christ-of-latter-day-saints",
+  "name": "The Church of Jesus Christ of Latter-day Saints",
+  "type": "Church",
+  "lat": 10.714375519645746,
+  "lng": 122.57285399863417,
+  "image": "assets/images/places/the-church-of-jesus-christ-of-latter-day-saints.jpg"
+ },
+ {
+  "id": "victory-churches-of-asia-iloilo",
+  "name": "Victory Churches of Asia - Iloilo",
+  "type": "Church",
+  "lat": 10.694337072995824,
+  "lng": 122.53582819067952,
+  "image": "assets/images/places/victory-churches-of-asia-iloilo.jpg"
+ },
+ {
+  "id": "the-church-of-jesus-christ-of-latter-day-saints-2",
+  "name": "The Church of Jesus Christ of Latter-day Saints",
+  "type": "Church",
+  "lat": 10.69845390413905,
+  "lng": 122.56228700038172,
+  "image": "assets/images/places/the-church-of-jesus-christ-of-latter-day-saints-2.jpg"
+ },
+ {
+  "id": "santa-barbara-parish-church",
+  "name": "Santa Barbara Parish Church",
+  "type": "Church",
+  "lat": 10.836890812097712,
+  "lng": 122.53304143340699,
+  "image": "assets/images/places/santa-barbara-parish-church.jpg"
+ },
+ {
+  "id": "archdiocesan-shrine-of-saint-vincent-ferrer",
+  "name": "Archdiocesan Shrine of Saint Vincent Ferrer",
+  "type": "Church",
+  "lat": 10.786647709709229,
+  "lng": 122.59014852842455,
+  "image": "assets/images/places/archdiocesan-shrine-of-saint-vincent-ferrer.jpg"
+ },
+ {
+  "id": "st-isidore-parish-church-zarraga",
+  "name": "St. Isidore Parish Church - Zarraga",
+  "type": "Church",
+  "lat": 10.824088000928233,
+  "lng": 122.60991833106057,
+  "image": "assets/images/places/st-isidore-parish-church-zarraga.jpg"
+ },
+ {
+  "id": "santo-tomas-de-villanueva-parish-miagao-church-archdiocese-of-jaro",
+  "name": "Santo Tomas de Villanueva Parish - Miagao Church (Archdiocese of Jaro)",
+  "type": "Church",
+  "lat": 10.64200874690313,
+  "lng": 122.23530092501237,
+  "image": "assets/images/places/santo-tomas-de-villanueva-parish-miagao-church-archdiocese-of-jaro.jpg"
+ },
+ {
+  "id": "national-museum-of-the-philippines-iloilo",
+  "name": "National Museum of the Philippines - Iloilo",
+  "type": "Museum",
+  "lat": 10.704911243434056,
+  "lng": 122.56835450447275,
+  "image": "assets/images/places/national-museum-of-the-philippines-iloilo.jpg"
+ },
+ {
+  "id": "museum-of-philippine-economic-history",
+  "name": "Museum of Philippine Economic History",
+  "type": "Museum",
+  "lat": 10.693927903975931,
+  "lng": 122.57270425690182,
+  "image": "assets/images/places/museum-of-philippine-economic-history.jpg"
+ },
+ {
+  "id": "museum-of-philippine-maritime-history",
+  "name": "Museum of Philippine Maritime History",
+  "type": "Museum",
+  "lat": 10.695028094045268,
+  "lng": 122.57227362711629,
+  "image": "assets/images/places/museum-of-philippine-maritime-history.jpg"
+ },
+ {
+  "id": "agatona-1927-museum-cafe",
+  "name": "Agatona 1927 Museum Cafe",
+  "type": "Museum",
+  "lat": 10.725524306356784,
+  "lng": 122.5566770775889,
+  "image": "assets/images/places/agatona-1927-museum-cafe.jpg"
+ },
+ {
+  "id": "iloilo-museum-of-contemporary-art-ilomoca",
+  "name": "Iloilo Museum of Contemporary Art (ILOMOCA)",
+  "type": "Museum",
+  "lat": 10.718714323628003,
+  "lng": 122.5482762197071,
+  "image": "assets/images/places/iloilo-museum-of-contemporary-art-ilomoca.jpg"
+ },
+ {
+  "id": "brandy-museum",
+  "name": "Brandy Museum",
+  "type": "Museum",
+  "lat": 10.718313058743819,
+  "lng": 122.54834728575611,
+  "image": "assets/images/places/brandy-museum.jpg"
+ },
+ {
+  "id": "sm-city-iloilo",
+  "name": "SM City Iloilo",
+  "type": "Mall",
+  "lat": 10.71521919735237,
+  "lng": 122.55088274790303,
+  "image": "assets/images/places/sm-city-iloilo.jpg"
+ },
+ {
+  "id": "festive-walk-mall-iloilo",
+  "name": "Festive Walk Mall Iloilo",
+  "type": "Mall",
+  "lat": 10.717937976088077,
+  "lng": 122.54700020197247,
+  "image": "assets/images/places/festive-walk-mall-iloilo.jpg"
+ },
+ {
+  "id": "robinsons-place-iloilo",
+  "name": "Robinsons Place Iloilo",
+  "type": "Mall",
+  "lat": 10.694909185028749,
+  "lng": 122.56640828448795,
+  "image": "assets/images/places/robinsons-place-iloilo.jpg"
+ },
+ {
+  "id": "vista-mall-iloilo",
+  "name": "Vista Mall Iloilo",
+  "type": "Mall",
+  "lat": 10.737751374854113,
+  "lng": 122.51378206654553,
+  "image": "assets/images/places/vista-mall-iloilo.jpg"
+ },
+ {
+  "id": "gt-town-center-pavia",
+  "name": "GT Town Center Pavia",
+  "type": "Mall",
+  "lat": 10.755291050549433,
+  "lng": 122.53781465969647,
+  "image": "assets/images/places/gt-town-center-pavia.jpg"
+ },
+ {
+  "id": "robinsons-pavia",
+  "name": "Robinsons Pavia",
+  "type": "Mall",
+  "lat": 10.753923707644063,
+  "lng": 122.53998869360596,
+  "image": "assets/images/places/robinsons-pavia.jpg"
+ },
+ {
+  "id": "the-atrium-mall",
+  "name": "The Atrium Mall",
+  "type": "Mall",
+  "lat": 10.703047599184107,
+  "lng": 122.56826266562477,
+  "image": "assets/images/places/the-atrium-mall.jpg"
+ },
+ {
+  "id": "sm-delgado",
+  "name": "SM Delgado",
+  "type": "Mall",
+  "lat": 10.699486677109102,
+  "lng": 122.5671500475719,
+  "image": "assets/images/places/sm-delgado.jpg"
+ },
+ {
+  "id": "marymart-center",
+  "name": "Marymart Center",
+  "type": "Mall",
+  "lat": 10.698262177305804,
+  "lng": 122.56817368113056,
+  "image": "assets/images/places/marymart-center.jpg"
+ },
+ {
+  "id": "1688-mall",
+  "name": "1688 Mall",
+  "type": "Mall",
+  "lat": 10.695981057169906,
+  "lng": 122.56679433977132,
+  "image": "assets/images/places/1688-mall.jpg"
+ },
+ {
+  "id": "gaisano-capital-city-mall",
+  "name": "Gaisano Capital City Mall",
+  "type": "Mall",
+  "lat": 10.707847804202952,
+  "lng": 122.5666698170809,
+  "image": "assets/images/places/gaisano-capital-city-mall.jpg"
+ },
+ {
+  "id": "gt-mall-molo",
+  "name": "GT Mall Molo",
+  "type": "Mall",
+  "lat": 10.697119629871327,
+  "lng": 122.54569693595403,
+  "image": "assets/images/places/gt-mall-molo.jpg"
+ },
+ {
+  "id": "robinsons-place-jaro",
+  "name": "Robinsons Place Jaro",
+  "type": "Mall",
+  "lat": 10.721098362205991,
+  "lng": 122.55810326696795,
+  "image": "assets/images/places/robinsons-place-jaro.jpg"
+ },
+ {
+  "id": "sm-terminal-market",
+  "name": "Sm Terminal Market",
+  "type": "Mall",
+  "lat": 10.693209834180019,
+  "lng": 122.56448281414063,
+  "image": "assets/images/places/sm-terminal-market.jpg"
+ },
+ {
+  "id": "citymall-pavia",
+  "name": "CityMall Pavia",
+  "type": "Mall",
+  "lat": 10.750887144427285,
+  "lng": 122.53888576840133,
+  "image": "assets/images/places/citymall-pavia.jpg"
+ },
+ {
+  "id": "cami-a-balay-nga-bato",
+  "name": "Camiña Balay nga Bato",
+  "type": "Heritage",
+  "lat": 10.68991129827121,
+  "lng": 122.51492245143618,
+  "image": "assets/images/places/cami-a-balay-nga-bato.jpg"
+ },
+ {
+  "id": "casa-mariquit",
+  "name": "Casa Mariquit",
+  "type": "Heritage",
+  "lat": 10.727150023191177,
+  "lng": 122.55669618046151,
+  "image": "assets/images/places/casa-mariquit.jpg"
+ },
+ {
+  "id": "provincial-capitol",
+  "name": "Provincial Capitol",
+  "type": "Heritage",
+  "lat": 10.702807017793983,
+  "lng": 122.56911976793954,
+  "image": "assets/images/places/provincial-capitol.jpg"
+ },
+ {
+  "id": "nelly-garden-mansion",
+  "name": "Nelly Garden Mansion",
+  "type": "Heritage",
+  "lat": 10.718885080543757,
+  "lng": 122.56226952746565,
+  "image": "assets/images/places/nelly-garden-mansion.jpg"
+ },
+ {
+  "id": "calle-real",
+  "name": "Calle Real",
+  "type": "Heritage",
+  "lat": 10.694203124381913,
+  "lng": 122.57111809862914,
+  "image": "assets/images/places/calle-real.jpg"
+ },
+ {
+  "id": "i-am-iloilo-landmark",
+  "name": "I am Iloilo Landmark",
+  "type": "Urban",
+  "lat": 10.70089072537047,
+  "lng": 122.54302485695601,
+  "image": "assets/images/places/i-am-iloilo-landmark.jpg"
+ },
+ {
+  "id": "iloilo-river-esplanade-1",
+  "name": "Iloilo River Esplanade 1",
+  "type": "Urban",
+  "lat": 10.702775417818211,
+  "lng": 122.5533408409568,
+  "image": "assets/images/places/iloilo-river-esplanade-1.jpg"
+ },
+ {
+  "id": "molo-mansion",
+  "name": "Molo Mansion",
+  "type": "Heritage",
+  "lat": 10.696792392046717,
+  "lng": 122.54361170048269,
+  "image": "assets/images/places/molo-mansion.jpg"
+ },
+ {
+  "id": "sea-garden-resort",
+  "name": "Sea Garden Resort",
+  "type": "Beach",
+  "lat": 10.76132119172947,
+  "lng": 122.5950218102676,
+  "image": "assets/images/places/sea-garden-resort.jpg"
+ },
+ {
+  "id": "pah-tau-hai-alegre-oton",
+  "name": "PAH TAU HAI ALEGRE Oton",
+  "type": "Beach",
+  "lat": 10.686932364099816,
+  "lng": 122.48625476918473,
+  "image": "assets/images/places/pah-tau-hai-alegre-oton.jpg"
+ },
+ {
+  "id": "villa-azul-resort",
+  "name": "Villa Azul Resort",
+  "type": "Beach",
+  "lat": 10.689790718549215,
+  "lng": 122.47058668433716,
+  "image": "assets/images/places/villa-azul-resort.jpg"
+ },
+ {
+  "id": "mabby-s-view-beach-resort",
+  "name": "MABBY's View Beach Resort",
+  "type": "Beach",
+  "lat": 10.682825661775503,
+  "lng": 122.49353162561187,
+  "image": "assets/images/places/mabby-s-view-beach-resort.jpg"
+ },
+ {
+  "id": "padi-beach-resort-oton-iloilo",
+  "name": "Padi Beach Resort Oton Iloilo",
+  "type": "Beach",
+  "lat": 10.688995714962019,
+  "lng": 122.46941685444799,
+  "image": "assets/images/places/padi-beach-resort-oton-iloilo.jpg"
+ }
+]
