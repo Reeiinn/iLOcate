@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:provider/provider.dart';
 
-import '../data/place.dart';
-import '../data/puj_route.dart';
-import 'place_details_screen.dart';
-
-const iloiloCenter = LatLng(10.7202, 122.5621);
+import '../models/place.dart';
+import '../models/puj_route.dart';
+import '../providers/places_provider.dart';
+import '../routes/app_router.dart';
+import '../widgets/osm_tile_layer.dart';
+import '../widgets/place_image.dart';
 
 class MapScreen extends StatefulWidget {
-  final List<Place> places;
-  final List<PujRoute> routes;
-
-  const MapScreen({super.key, required this.places, required this.routes});
+  const MapScreen({super.key});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
+  // Which routes are drawn and whether pins are visible only matter to this
+  // screen, so they stay in local State rather than a Provider.
   final Set<String> _shownRoutes = {};
   bool _showPlaces = true;
 
-  List<Polyline> get _polylines {
+  List<Polyline> _polylines(List<PujRoute> routes) {
     final lines = <Polyline>[];
-    for (final route in widget.routes) {
+    for (final route in routes) {
       if (!_shownRoutes.contains(route.number)) continue;
       for (final points in [route.goingTo, route.goingBack]) {
         if (points.length < 2) continue;
@@ -34,16 +34,15 @@ class _MapScreenState extends State<MapScreen> {
     return lines;
   }
 
-  void _openRoutePicker() {
+  void _openRoutePicker(List<PujRoute> routes) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      showDragHandle: true,
       builder: (context) => StatefulBuilder(
         builder: (context, setSheetState) {
-          void toggle(String number) {
-            setState(() {
-              if (!_shownRoutes.remove(number)) _shownRoutes.add(number);
-            });
+          void update(VoidCallback change) {
+            setState(change);
             setSheetState(() {});
           }
 
@@ -53,14 +52,14 @@ class _MapScreenState extends State<MapScreen> {
             builder: (context, controller) => Column(
               children: [
                 ListTile(
-                  title: const Text('Jeepney routes', style: TextStyle(fontWeight: FontWeight.bold)),
+                  title: const Text(
+                    'Jeepney routes',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   trailing: TextButton(
                     onPressed: _shownRoutes.isEmpty
                         ? null
-                        : () {
-                            setState(_shownRoutes.clear);
-                            setSheetState(() {});
-                          },
+                        : () => update(_shownRoutes.clear),
                     child: const Text('Clear'),
                   ),
                 ),
@@ -68,11 +67,18 @@ class _MapScreenState extends State<MapScreen> {
                   child: ListView(
                     controller: controller,
                     children: [
-                      for (final route in widget.routes)
+                      for (final route in routes)
                         CheckboxListTile(
                           value: _shownRoutes.contains(route.number),
-                          onChanged: (_) => toggle(route.number),
-                          secondary: CircleAvatar(radius: 8, backgroundColor: route.color),
+                          onChanged: (_) => update(() {
+                            if (!_shownRoutes.remove(route.number)) {
+                              _shownRoutes.add(route.number);
+                            }
+                          }),
+                          secondary: CircleAvatar(
+                            radius: 8,
+                            backgroundColor: route.color,
+                          ),
                           title: Text(route.number),
                           subtitle: Text(route.name),
                         ),
@@ -90,28 +96,30 @@ class _MapScreenState extends State<MapScreen> {
   void _showPlacePreview(Place place) {
     showModalBottomSheet(
       context: context,
-      builder: (sheetContext) => ListTile(
-        contentPadding: const EdgeInsets.all(16),
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(place.image, width: 64, height: 64, fit: BoxFit.cover),
+      builder: (sheetContext) => SafeArea(
+        child: ListTile(
+          contentPadding: const EdgeInsets.all(16),
+          leading: PlaceImage(place: place, width: 64, height: 64),
+          title: Text(place.name),
+          subtitle: Text(place.type),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () {
+            Navigator.pop(sheetContext);
+            Navigator.pushNamed(
+              context,
+              AppRoutes.placeDetails,
+              arguments: place,
+            );
+          },
         ),
-        title: Text(place.name),
-        subtitle: Text(place.type),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: () {
-          Navigator.pop(sheetContext);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => PlaceDetailsScreen(place: place)),
-          );
-        },
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final data = context.watch<PlacesProvider>();
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -130,35 +138,36 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       body: FlutterMap(
-        options: MapOptions(initialCenter: iloiloCenter, initialZoom: 13.5),
+        options: const MapOptions(
+          initialCenter: iloiloCenter,
+          initialZoom: 13.5,
+        ),
         children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'com.reeiinn.ilocate',
-          ),
-          PolylineLayer(polylines: _polylines),
+          const OsmTileLayer(),
+          PolylineLayer(polylines: _polylines(data.routes)),
           if (_showPlaces)
             MarkerLayer(
               markers: [
-                for (final place in widget.places)
-                  Marker(
-                    point: place.location,
-                    width: 28,
-                    height: 28,
-                    child: GestureDetector(
-                      onTap: () => _showPlacePreview(place),
-                      child: Icon(Icons.location_on, color: colorForType(place.type), size: 28),
-                    ),
+                for (final place in data.places)
+                  placeMarker(
+                    place.location,
+                    place.type,
+                    size: 28,
+                    onTap: () => _showPlacePreview(place),
                   ),
               ],
             ),
-          const SimpleAttributionWidget(source: Text('OpenStreetMap contributors')),
+          const SimpleAttributionWidget(
+            source: Text('OpenStreetMap contributors'),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _openRoutePicker,
+        onPressed: () => _openRoutePicker(data.routes),
         icon: const Icon(Icons.directions_bus),
-        label: Text(_shownRoutes.isEmpty ? 'Routes' : 'Routes (${_shownRoutes.length})'),
+        label: Text(
+          _shownRoutes.isEmpty ? 'Routes' : 'Routes (${_shownRoutes.length})',
+        ),
       ),
     );
   }

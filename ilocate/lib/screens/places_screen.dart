@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../data/place.dart';
+import '../models/place.dart';
+import '../providers/places_provider.dart';
+import '../widgets/empty_state.dart';
 import '../widgets/place_tile.dart';
 
 class PlacesScreen extends StatefulWidget {
-  final List<Place> places;
-
-  const PlacesScreen({super.key, required this.places});
+  const PlacesScreen({super.key});
 
   @override
   State<PlacesScreen> createState() => _PlacesScreenState();
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
+  final _search = TextEditingController();
   String _query = '';
   String? _type;
 
   @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
+
+  void _clearFilters() {
+    _search.clear();
+    setState(() {
+      _query = '';
+      _type = null;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final results = widget.places.where((p) {
-      if (_type != null && p.type != _type) return false;
-      return p.name.toLowerCase().contains(_query.toLowerCase());
-    }).toList();
+    final results = context.watch<PlacesProvider>().search(_query, type: _type);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Places & Food')),
@@ -30,13 +43,23 @@ class _PlacesScreenState extends State<PlacesScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
             child: TextField(
-              decoration: const InputDecoration(
+              controller: _search,
+              decoration: InputDecoration(
                 hintText: 'Search places',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.search),
                 isDense: true,
+                suffixIcon: _query.isEmpty
+                    ? null
+                    : IconButton(
+                        tooltip: 'Clear search',
+                        icon: const Icon(Icons.close),
+                        onPressed: () {
+                          _search.clear();
+                          setState(() => _query = '');
+                        },
+                      ),
               ),
-              onChanged: (value) => setState(() => _query = value.trim()),
+              onChanged: (value) => setState(() => _query = value),
             ),
           ),
           SizedBox(
@@ -59,7 +82,13 @@ class _PlacesScreenState extends State<PlacesScreen> {
           ),
           Expanded(
             child: results.isEmpty
-                ? const Center(child: Text('No places found.'))
+                ? EmptyState(
+                    icon: Icons.search_off,
+                    title: 'No places found',
+                    message: 'Try a different name or category.',
+                    actionLabel: 'Clear filters',
+                    onAction: _clearFilters,
+                  )
                 : ListView.builder(
                     itemCount: results.length,
                     itemBuilder: (context, i) => PlaceTile(place: results[i]),

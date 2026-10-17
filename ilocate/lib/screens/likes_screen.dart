@@ -1,39 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../data/likes.dart';
-import '../data/place.dart';
+import '../models/place.dart';
+import '../providers/likes_provider.dart';
+import '../providers/places_provider.dart';
+import '../widgets/empty_state.dart';
 import '../widgets/place_tile.dart';
 
 class LikesScreen extends StatelessWidget {
-  final List<Place> places;
-
-  const LikesScreen({super.key, required this.places});
+  const LikesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final places = context.watch<PlacesProvider>();
+    final liked = context
+        .watch<LikesProvider>()
+        .ids
+        .map(places.placeById)
+        .whereType<Place>()
+        .toList()
+      ..sort((a, b) => a.name.compareTo(b.name));
+
     return Scaffold(
       appBar: AppBar(title: const Text('Likes')),
-      body: ValueListenableBuilder<Set<String>>(
-        valueListenable: likes,
-        builder: (context, liked, _) {
-          final saved = places.where((p) => liked.contains(p.id)).toList();
-          if (saved.isEmpty) {
-            return const Center(
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: Text(
-                  'No likes yet. Tap the heart on a place to save it here.',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            );
-          }
-          return ListView.builder(
-            itemCount: saved.length,
-            itemBuilder: (context, i) => PlaceTile(place: saved[i]),
-          );
-        },
-      ),
+      body: liked.isEmpty
+          ? const EmptyState(
+              icon: Icons.favorite_border,
+              title: 'No likes yet',
+              message: 'Tap the heart on a place to save it here.',
+            )
+          : ListView.builder(
+              itemCount: liked.length,
+              itemBuilder: (context, i) => PlaceTile(place: liked[i]),
+            ),
     );
   }
 }
