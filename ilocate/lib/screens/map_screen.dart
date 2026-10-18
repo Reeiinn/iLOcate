@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../models/place.dart';
 import '../models/puj_route.dart';
+import '../providers/location_provider.dart';
 import '../providers/places_provider.dart';
 import '../routes/app_router.dart';
 import '../widgets/osm_tile_layer.dart';
@@ -21,6 +22,19 @@ class _MapScreenState extends State<MapScreen> {
   // screen, so they stay in local State rather than a Provider.
   final Set<String> _shownRoutes = {};
   bool _showPlaces = true;
+  final _mapController = MapController();
+
+  Future<void> _goToMyLocation() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final location = context.read<LocationProvider>();
+    final point = await location.locate();
+    if (!mounted) return;
+    if (point == null) {
+      messenger.showSnackBar(SnackBar(content: Text(location.error!)));
+      return;
+    }
+    _mapController.move(point, 16);
+  }
 
   List<Polyline> _polylines(List<PujRoute> routes) {
     final lines = <Polyline>[];
@@ -119,6 +133,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     final data = context.watch<PlacesProvider>();
+    final location = context.watch<LocationProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -138,6 +153,7 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       body: FlutterMap(
+        mapController: _mapController,
         options: const MapOptions(
           initialCenter: iloiloCenter,
           initialZoom: 13.5,
@@ -157,17 +173,64 @@ class _MapScreenState extends State<MapScreen> {
                   ),
               ],
             ),
+          if (location.position != null)
+            MarkerLayer(markers: [
+              Marker(
+                point: location.position!,
+                width: 22,
+                height: 22,
+                child: const _MyLocationDot(),
+              ),
+            ]),
           const SimpleAttributionWidget(
             source: Text('OpenStreetMap contributors'),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _openRoutePicker(data.routes),
-        icon: const Icon(Icons.directions_bus),
-        label: Text(
-          _shownRoutes.isEmpty ? 'Routes' : 'Routes (${_shownRoutes.length})',
-        ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton.small(
+            heroTag: 'my-location',
+            tooltip: 'My location',
+            onPressed: location.isLocating ? null : _goToMyLocation,
+            child: location.isLocating
+                ? const SizedBox.square(
+                    dimension: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.my_location),
+          ),
+          const SizedBox(height: 12),
+          FloatingActionButton.extended(
+            heroTag: 'routes',
+            onPressed: () => _openRoutePicker(data.routes),
+            icon: const Icon(Icons.directions_bus),
+            label: Text(
+              _shownRoutes.isEmpty
+                  ? 'Routes'
+                  : 'Routes (${_shownRoutes.length})',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Blue dot for the user's GPS position.
+class _MyLocationDot extends StatelessWidget {
+  const _MyLocationDot();
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.white, width: 3),
+        boxShadow: const [BoxShadow(blurRadius: 4, color: Colors.black26)],
       ),
     );
   }

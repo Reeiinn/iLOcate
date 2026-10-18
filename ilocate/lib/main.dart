@@ -5,10 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app.dart';
 import 'providers/likes_provider.dart';
+import 'providers/location_provider.dart';
 import 'providers/places_provider.dart';
 import 'services/api_client.dart';
 import 'services/asset_data_service.dart';
 import 'services/local_store.dart';
+import 'services/location_service.dart';
 import 'services/weather_service.dart';
 
 Future<void> main() async {
@@ -26,6 +28,9 @@ Future<void> main() async {
           create: (_) => PlacesProvider(AssetDataService())..load(),
         ),
         ChangeNotifierProvider(create: (_) => LikesProvider(store)),
+        ChangeNotifierProvider(
+          create: (_) => LocationProvider(LocationService()),
+        ),
       ],
       child: const ILocateApp(),
     ),
