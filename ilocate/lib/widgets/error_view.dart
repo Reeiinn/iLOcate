@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// Error message with a retry button.
+import '../services/api_client.dart';
+
+/// Error message with a retry button. Shows a "no connection" icon when the
+/// error is an offline [ApiException].
 class ErrorView extends StatelessWidget {
   final Object error;
   final VoidCallback onRetry;
@@ -16,8 +19,9 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final offline = error is ApiException && (error as ApiException).isOffline;
     final icon = Icon(
-      Icons.error_outline,
+      offline ? Icons.wifi_off : Icons.error_outline,
       color: theme.colorScheme.error,
       size: compact ? 28 : 56,
     );

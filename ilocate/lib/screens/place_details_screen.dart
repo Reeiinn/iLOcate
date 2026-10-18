@@ -6,6 +6,7 @@ import '../widgets/like_button.dart';
 import '../widgets/osm_tile_layer.dart';
 import '../widgets/place_image.dart';
 import '../widgets/type_chip.dart';
+import '../widgets/weather_card.dart';
 
 /// Detail screen for one place. Receives the [Place] as the route argument.
 class PlaceDetailsScreen extends StatelessWidget {
@@ -42,6 +43,8 @@ class PlaceDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
+          WeatherCard(point: place.location),
+          const SizedBox(height: 12),
           SizedBox(
             height: 200,
             child: FlutterMap(
