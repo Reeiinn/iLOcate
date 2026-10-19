@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 
 import '../models/place.dart';
+import '../routes/app_router.dart';
 import '../widgets/like_button.dart';
 import '../widgets/osm_tile_layer.dart';
 import '../widgets/place_image.dart';
@@ -65,10 +66,13 @@ class PlaceDetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
             child: FilledButton.icon(
-              // Directions (OSRM) is not built yet.
-              onPressed: null,
+              onPressed: () => Navigator.pushNamed(
+                context,
+                AppRoutes.directions,
+                arguments: place,
+              ),
               icon: const Icon(Icons.directions),
-              label: const Text('Directions (coming soon)'),
+              label: const Text('Directions'),
             ),
           ),
         ],

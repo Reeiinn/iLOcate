@@ -9,6 +9,7 @@ import 'providers/location_provider.dart';
 import 'providers/places_provider.dart';
 import 'services/api_client.dart';
 import 'services/asset_data_service.dart';
+import 'services/directions_service.dart';
 import 'services/local_store.dart';
 import 'services/location_service.dart';
 import 'services/weather_service.dart';
@@ -23,6 +24,7 @@ Future<void> main() async {
       providers: [
         // Services: plain objects, read with context.read<T>().
         Provider.value(value: WeatherService(api)),
+        Provider.value(value: DirectionsService(api)),
         // Shared app state: ChangeNotifiers that screens watch.
         ChangeNotifierProvider(
           create: (_) => PlacesProvider(AssetDataService())..load(),
