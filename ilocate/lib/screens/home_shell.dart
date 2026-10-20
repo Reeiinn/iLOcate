@@ -7,8 +7,9 @@ import '../widgets/error_view.dart';
 import 'likes_screen.dart';
 import 'map_screen.dart';
 import 'places_screen.dart';
+import 'trips_screen.dart';
 
-/// The home route: three tabs behind a bottom navigation bar. Shows a loading
+/// The home route: four tabs behind a bottom navigation bar. Shows a loading
 /// screen until the bundled place data is ready.
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key});
@@ -44,6 +45,7 @@ class _HomeShellState extends State<HomeShell> {
         children: const [
           MapScreen(),
           PlacesScreen(),
+          TripsScreen(),
           LikesScreen(),
         ],
       ),
@@ -60,6 +62,11 @@ class _HomeShellState extends State<HomeShell> {
             icon: Icon(Icons.place_outlined),
             selectedIcon: Icon(Icons.place),
             label: 'Places',
+          ),
+          const NavigationDestination(
+            icon: Icon(Icons.luggage_outlined),
+            selectedIcon: Icon(Icons.luggage),
+            label: 'Trips',
           ),
           NavigationDestination(
             icon: Badge(
