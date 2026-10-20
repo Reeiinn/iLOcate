@@ -7,6 +7,7 @@ import 'app.dart';
 import 'providers/likes_provider.dart';
 import 'providers/location_provider.dart';
 import 'providers/places_provider.dart';
+import 'providers/settings_provider.dart';
 import 'providers/trips_provider.dart';
 import 'services/api_client.dart';
 import 'services/asset_data_service.dart';
@@ -32,6 +33,7 @@ Future<void> main() async {
         ),
         ChangeNotifierProvider(create: (_) => LikesProvider(store)),
         ChangeNotifierProvider(create: (_) => TripsProvider(store)),
+        ChangeNotifierProvider(create: (_) => SettingsProvider(store)),
         ChangeNotifierProvider(
           create: (_) => LocationProvider(LocationService()),
         ),

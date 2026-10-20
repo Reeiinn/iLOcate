@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/trip.dart';
@@ -9,6 +10,7 @@ import '../models/trip.dart';
 class LocalStore {
   static const _likesKey = 'liked_place_ids';
   static const _tripsKey = 'trips';
+  static const _themeKey = 'theme_mode';
 
   final SharedPreferences _prefs;
 
@@ -35,4 +37,15 @@ class LocalStore {
         _tripsKey,
         jsonEncode(trips.map((t) => t.toJson()).toList()),
       );
+
+  ThemeMode loadThemeMode() {
+    final name = _prefs.getString(_themeKey);
+    return ThemeMode.values.firstWhere(
+      (m) => m.name == name,
+      orElse: () => ThemeMode.system,
+    );
+  }
+
+  Future<void> saveThemeMode(ThemeMode mode) =>
+      _prefs.setString(_themeKey, mode.name);
 }
