@@ -6,6 +6,7 @@ import '../screens/directions_screen.dart';
 import '../screens/home_shell.dart';
 import '../screens/not_found_screen.dart';
 import '../screens/place_details_screen.dart';
+import '../screens/settings_screen.dart';
 import '../screens/trip_details_screen.dart';
 import '../screens/trip_form_screen.dart';
 
@@ -17,6 +18,7 @@ abstract final class AppRoutes {
   static const directions = '/directions';
   static const tripDetails = '/trip';
   static const tripForm = '/trip/form';
+  static const settings = '/settings';
 }
 
 /// Arguments for [AppRoutes.directions]. A bare [Place] also works and means
@@ -54,6 +56,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     AppRoutes.tripForm => TripFormScreen(
         args: args is TripFormArgs ? args : const TripFormArgs(),
       ),
+    AppRoutes.settings => const SettingsScreen(),
     _ => NotFoundScreen(routeName: settings.name),
   };
   return MaterialPageRoute(builder: (_) => page, settings: settings);

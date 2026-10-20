@@ -150,6 +150,11 @@ class _MapScreenState extends State<MapScreen> {
             icon: Icon(_showPlaces ? Icons.location_on : Icons.location_off),
             onPressed: () => setState(() => _showPlaces = !_showPlaces),
           ),
+          IconButton(
+            tooltip: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => Navigator.pushNamed(context, AppRoutes.settings),
+          ),
         ],
       ),
       body: FlutterMap(
