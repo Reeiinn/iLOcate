@@ -1,71 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'data/place.dart';
-import 'data/puj_route.dart';
-import 'screens/likes_screen.dart';
-import 'screens/map_screen.dart';
-import 'screens/places_screen.dart';
+import 'app.dart';
+import 'providers/likes_provider.dart';
+import 'providers/location_provider.dart';
+import 'providers/places_provider.dart';
+import 'providers/settings_provider.dart';
+import 'providers/trips_provider.dart';
+import 'services/api_client.dart';
+import 'services/asset_data_service.dart';
+import 'services/directions_service.dart';
+import 'services/local_store.dart';
+import 'services/location_service.dart';
+import 'services/weather_service.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final places = await loadPlaces();
-  final routes = await loadRoutes();
-  runApp(ILocateApp(places: places, routes: routes));
-}
+  final store = LocalStore(await SharedPreferences.getInstance());
+  final api = ApiClient(http.Client());
 
-class ILocateApp extends StatelessWidget {
-  final List<Place> places;
-  final List<PujRoute> routes;
-
-  const ILocateApp({super.key, required this.places, required this.routes});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'iLOcate',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0B8080)),
-        useMaterial3: true,
-      ),
-      home: HomeShell(places: places, routes: routes),
-    );
-  }
-}
-
-class HomeShell extends StatefulWidget {
-  final List<Place> places;
-  final List<PujRoute> routes;
-
-  const HomeShell({super.key, required this.places, required this.routes});
-
-  @override
-  State<HomeShell> createState() => _HomeShellState();
-}
-
-class _HomeShellState extends State<HomeShell> {
-  int _tab = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: _tab,
-        children: [
-          MapScreen(places: widget.places, routes: widget.routes),
-          PlacesScreen(places: widget.places),
-          LikesScreen(places: widget.places),
-        ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _tab,
-        onDestinationSelected: (i) => setState(() => _tab = i),
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
-          NavigationDestination(icon: Icon(Icons.place_outlined), selectedIcon: Icon(Icons.place), label: 'Places'),
-          NavigationDestination(icon: Icon(Icons.favorite_border), selectedIcon: Icon(Icons.favorite), label: 'Likes'),
-        ],
-      ),
-    );
-  }
+  runApp(
+    MultiProvider(
+      providers: [
+        // Services: plain objects, read with context.read<T>().
+        Provider.value(value: WeatherService(api)),
+        Provider.value(value: DirectionsService(api)),
+        // Shared app state: ChangeNotifiers that screens watch.
+        ChangeNotifierProvider(
+          create: (_) => PlacesProvider(AssetDataService())..load(),
+        ),
+        ChangeNotifierProvider(create: (_) => LikesProvider(store)),
+        ChangeNotifierProvider(create: (_) => TripsProvider(store)),
+        ChangeNotifierProvider(create: (_) => SettingsProvider(store)),
+        ChangeNotifierProvider(
+          create: (_) => LocationProvider(LocationService()),
+        ),
+      ],
+      child: const ILocateApp(),
+    ),
+  );
 }
