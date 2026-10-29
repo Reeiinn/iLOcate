@@ -21,6 +21,20 @@ void main() {
     });
   });
 
+  group('validateTripDate', () {
+    final now = DateTime(2026, 10, 29, 15, 30);
+
+    test('rejects a missing or past date', () {
+      expect(validateTripDate(null, now: now), isNotNull);
+      expect(validateTripDate(DateTime(2026, 10, 28), now: now), isNotNull);
+    });
+
+    test('accepts today and future dates', () {
+      expect(validateTripDate(DateTime(2026, 10, 29), now: now), isNull);
+      expect(validateTripDate(DateTime(2026, 11, 5), now: now), isNull);
+    });
+  });
+
   testWidgets('saving an empty form shows every validation error',
       (tester) async {
     SharedPreferences.setMockInitialValues({});
