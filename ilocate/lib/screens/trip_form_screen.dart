@@ -54,10 +54,14 @@ class _TripFormScreenState extends State<TripFormScreen> {
 
   Future<void> _pickDate(FormFieldState<DateTime> field) async {
     final today = DateUtils.dateOnly(DateTime.now());
+    // Trips are planned ahead, so the picker starts at today. An existing
+    // trip whose date has passed opens on today instead of its old date.
+    final current = _date;
     final picked = await showDatePicker(
       context: context,
-      initialDate: _date ?? today,
-      firstDate: DateTime(today.year - 1),
+      initialDate:
+          current == null || current.isBefore(today) ? today : current,
+      firstDate: today,
       lastDate: DateTime(today.year + 2),
     );
     if (picked == null) return;
@@ -126,7 +130,7 @@ class _TripFormScreenState extends State<TripFormScreen> {
             const SizedBox(height: 8),
             FormField<DateTime>(
               initialValue: _date,
-              validator: (value) => value == null ? 'Pick a date' : null,
+              validator: validateTripDate,
               builder: (field) => InputDecorator(
                 decoration: InputDecoration(
                   labelText: 'Date',
@@ -224,5 +228,16 @@ String? validateTripTitle(String? value) {
   if (text.isEmpty) return 'Give the trip a name';
   if (text.length < 3) return 'Name must be at least 3 characters';
   if (text.length > 40) return 'Name must be 40 characters or less';
+  return null;
+}
+
+/// Trips can only be planned for today or later. [now] is injectable so the
+/// rule can be unit tested.
+String? validateTripDate(DateTime? value, {DateTime? now}) {
+  if (value == null) return 'Pick a date';
+  final today = DateUtils.dateOnly(now ?? DateTime.now());
+  if (DateUtils.dateOnly(value).isBefore(today)) {
+    return 'Pick today or a future date';
+  }
   return null;
 }
